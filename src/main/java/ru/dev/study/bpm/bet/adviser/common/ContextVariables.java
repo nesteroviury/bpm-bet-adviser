@@ -5,4 +5,5 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public final class ContextVariables {
     public static final String FIRST_FIGHTER_FORM = "firstFighterForm";
+    public static final String SECOND_FIGHTER_FORM = "secondFighterForm";
 }
