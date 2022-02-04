@@ -11,8 +11,8 @@ public class AdviseBuilderDelegate implements JavaDelegate {
     public void execute(DelegateExecution execution) throws Exception {
         double firstFighterVictoryProbability = 0;
         double secondFighterVictoryProbability = 0;
-        int firstFighterForm = (int) execution.getVariable(ContextVariables.FIRST_FIGHTER_FORM);
-        int secondFighterForm = (int) execution.getVariable(ContextVariables.SECOND_FIGHTER_FORM);
+        double firstFighterForm = (double) execution.getVariable(ContextVariables.FIRST_FIGHTER_FORM);
+        double secondFighterForm = (double) execution.getVariable(ContextVariables.SECOND_FIGHTER_FORM);
         int firstFighterTablePlace = (int) execution.getVariable(ContextVariables.FIRST_FIGHTER_TABLE_PLACE);
         int secondFighterTablePlace = (int) execution.getVariable(ContextVariables.SECOND_FIGHTER_TABLE_PLACE);
 
@@ -25,7 +25,7 @@ public class AdviseBuilderDelegate implements JavaDelegate {
         execution.setVariable(ContextVariables.SECOND_FIGHTER_VICTORY_PROBABILITY, secondFighterVictoryProbability);
     }
 
-    private double compareForm(int firstParam, int secondParam) {
+    private double compareForm(double firstParam, double secondParam) {
         double result = 0;
         if (firstParam > secondParam) {
             result = 50;
