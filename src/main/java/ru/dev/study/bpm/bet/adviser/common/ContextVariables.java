@@ -10,4 +10,6 @@ public final class ContextVariables {
     public static final String SECOND_FIGHTER_TABLE_PLACE = "secondFighterTablePlace";
     public static final String FIRST_FIGHTER_VICTORY_PROBABILITY = "firstFighterVictoryProbability";
     public static final String SECOND_FIGHTER_VICTORY_PROBABILITY = "secondFighterVictoryProbability";
+
+    public static final String ERROR_MESSAGE = "errorMessage";
 }
