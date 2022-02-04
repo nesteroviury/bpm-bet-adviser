@@ -13,7 +13,7 @@ public class AdvisePrinterDelegate implements JavaDelegate {
     public void execute(DelegateExecution execution) throws Exception {
         double firstFighterVictoryProbability = (double) execution.getVariable(ContextVariables.FIRST_FIGHTER_VICTORY_PROBABILITY);
         double secondFighterVictoryProbability = (double) execution.getVariable(ContextVariables.SECOND_FIGHTER_VICTORY_PROBABILITY);
-        StringBuilder stringBuilder = new StringBuilder();
+        StringBuilder stringBuilder = new StringBuilder("\n");
         String advise = stringBuilder.append(ContextVariables.FIRST_FIGHTER_VICTORY_PROBABILITY)
                 .append(":")
                 .append(firstFighterVictoryProbability)
