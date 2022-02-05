@@ -58,33 +58,25 @@
     <bpmn:sequenceFlow id="Flow_1ifiezb" sourceRef="Gateway_08z4ybv" targetRef="secondFighterTablePlaceRetrieverActivity" />
     <bpmn:sequenceFlow id="Flow_190su1u" sourceRef="secondFighterTablePlaceRetrieverActivity" targetRef="Gateway_1af079o" />
     <bpmn:boundaryEvent id="illegalFirstFighterFightsCountErrorEvent" name="Illegal fighter fights count" attachedToRef="firstFighterFormRetrieverActivity">
-      <bpmn:outgoing>Flow_0ctmnv0</bpmn:outgoing>
+      <bpmn:outgoing>Flow_0m6jh2b</bpmn:outgoing>
       <bpmn:errorEventDefinition id="ErrorEventDefinition_0eyolo3" errorRef="Error_13ilme8" camunda:errorMessageVariable="errorMessage" />
     </bpmn:boundaryEvent>
-    <bpmn:serviceTask id="errorPrinterActivity" name="print error" camunda:delegateExpression="${errorPrinterDelegate}">
-      <bpmn:incoming>Flow_0ctmnv0</bpmn:incoming>
-      <bpmn:incoming>Flow_0270n7z</bpmn:incoming>
-      <bpmn:outgoing>Flow_0a5td39</bpmn:outgoing>
-    </bpmn:serviceTask>
-    <bpmn:sequenceFlow id="Flow_0ctmnv0" sourceRef="illegalFirstFighterFightsCountErrorEvent" targetRef="errorPrinterActivity" />
-    <bpmn:endEvent id="Event_1xd07z1">
-      <bpmn:incoming>Flow_0a5td39</bpmn:incoming>
-    </bpmn:endEvent>
-    <bpmn:sequenceFlow id="Flow_0a5td39" sourceRef="errorPrinterActivity" targetRef="Event_1xd07z1" />
     <bpmn:boundaryEvent id="illegalSecondFighterFightsCountErrorEvent" name="Illegal fighter fights count" attachedToRef="secondFighterFormRetrieverActivity">
-      <bpmn:outgoing>Flow_0270n7z</bpmn:outgoing>
+      <bpmn:outgoing>Flow_0maxsb2</bpmn:outgoing>
       <bpmn:errorEventDefinition id="ErrorEventDefinition_1cr53lb" camunda:errorMessageVariable="errorMessage" />
     </bpmn:boundaryEvent>
-    <bpmn:sequenceFlow id="Flow_0270n7z" sourceRef="illegalSecondFighterFightsCountErrorEvent" targetRef="errorPrinterActivity" />
+    <bpmn:endEvent id="errorEndEvent" name="error end event">
+      <bpmn:incoming>Flow_0m6jh2b</bpmn:incoming>
+      <bpmn:incoming>Flow_0maxsb2</bpmn:incoming>
+      <bpmn:messageEventDefinition id="MessageEventDefinition_05wau8n" messageRef="Message_00kocrb" />
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_0m6jh2b" sourceRef="illegalFirstFighterFightsCountErrorEvent" targetRef="errorEndEvent" />
+    <bpmn:sequenceFlow id="Flow_0maxsb2" sourceRef="illegalSecondFighterFightsCountErrorEvent" targetRef="errorEndEvent" />
   </bpmn:process>
   <bpmn:error id="Error_13ilme8" name="illeagalFirstFighterFightsCount" />
+  <bpmn:message id="Message_00kocrb" name="errorEventMessage" />
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="ufcVictoryAdviseProcess">
-      <bpmndi:BPMNEdge id="Flow_0ctmnv0_di" bpmnElement="Flow_0ctmnv0">
-        <di:waypoint x="440" y="152" />
-        <di:waypoint x="440" y="120" />
-        <di:waypoint x="680" y="120" />
-      </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_190su1u_di" bpmnElement="Flow_190su1u">
         <di:waypoint x="490" y="430" />
         <di:waypoint x="600" y="430" />
@@ -141,15 +133,15 @@
         <di:waypoint x="215" y="377" />
         <di:waypoint x="275" y="377" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_0a5td39_di" bpmnElement="Flow_0a5td39">
-        <di:waypoint x="780" y="120" />
-        <di:waypoint x="1002" y="120" />
+      <bpmndi:BPMNEdge id="Flow_0m6jh2b_di" bpmnElement="Flow_0m6jh2b">
+        <di:waypoint x="440" y="152" />
+        <di:waypoint x="440" y="130" />
+        <di:waypoint x="692" y="130" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_0270n7z_di" bpmnElement="Flow_0270n7z">
+      <bpmndi:BPMNEdge id="Flow_0maxsb2_di" bpmnElement="Flow_0maxsb2">
         <di:waypoint x="508" y="300" />
-        <di:waypoint x="570" y="300" />
-        <di:waypoint x="570" y="120" />
-        <di:waypoint x="680" y="120" />
+        <di:waypoint x="710" y="300" />
+        <di:waypoint x="710" y="148" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
         <dc:Bounds x="179" y="359" width="36" height="36" />
@@ -181,22 +173,22 @@
       <bpmndi:BPMNShape id="Activity_0ux63lh_di" bpmnElement="secondFighterTablePlaceRetrieverActivity">
         <dc:Bounds x="390" y="390" width="100" height="80" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_0874fn6_di" bpmnElement="errorPrinterActivity">
-        <dc:Bounds x="680" y="80" width="100" height="80" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Event_1xd07z1_di" bpmnElement="Event_1xd07z1">
-        <dc:Bounds x="1002" y="102" width="36" height="36" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Event_0j8k5b5_di" bpmnElement="illegalFirstFighterFightsCountErrorEvent">
-        <dc:Bounds x="422" y="152" width="36" height="36" />
+      <bpmndi:BPMNShape id="Event_0cbmauc_di" bpmnElement="errorEndEvent">
+        <dc:Bounds x="692" y="112" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="359" y="126" width="63" height="27" />
+          <dc:Bounds x="675" y="82" width="75" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Event_1pxaj09_di" bpmnElement="illegalSecondFighterFightsCountErrorEvent">
         <dc:Bounds x="472" y="282" width="36" height="36" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="498" y="256" width="63" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0j8k5b5_di" bpmnElement="illegalFirstFighterFightsCountErrorEvent">
+        <dc:Bounds x="422" y="152" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="359" y="126" width="63" height="27" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
     </bpmndi:BPMNPlane>
