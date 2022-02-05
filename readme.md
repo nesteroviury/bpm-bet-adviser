@@ -2,6 +2,8 @@
 
 ## resources
 * https://github.com/camunda/camunda-bpm-examples/tree/master/spring-boot-starter/example-webapp
+* https://github.com/kpkurian/spring-cloud-stream-camunda
+* https://camunda.com/best-practices/routing-events-to-processes/
 
 ## urls
 * [camunda](https://camunda.com/)
