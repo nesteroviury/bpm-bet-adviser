@@ -3,3 +3,15 @@ camunda:
     admin-user:
       id: root
       password: root
+
+server:
+  port: 8081
+
+spring:
+  cloud:
+    stream:
+      bindings:
+        input:
+          destination: error-events-in
+        output:
+          destination: error-events-out
