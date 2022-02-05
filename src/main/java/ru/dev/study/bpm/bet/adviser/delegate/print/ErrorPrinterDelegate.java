@@ -1,4 +1,4 @@
-package ru.dev.study.bpm.bet.adviser.delegate;
+package ru.dev.study.bpm.bet.adviser.delegate.print;
 
 import lombok.extern.slf4j.Slf4j;
 import org.camunda.bpm.engine.delegate.DelegateExecution;
