@@ -3,6 +3,7 @@ package ru.dev.study.bpm.bet.adviser.delegate.print;
 import lombok.extern.slf4j.Slf4j;
 import org.camunda.bpm.engine.delegate.DelegateExecution;
 import org.camunda.bpm.engine.delegate.JavaDelegate;
+import org.camunda.bpm.engine.impl.persistence.entity.ExecutionEntity;
 import org.springframework.stereotype.Component;
 import ru.dev.study.bpm.bet.adviser.common.ContextVariables;
 
@@ -11,6 +12,6 @@ import ru.dev.study.bpm.bet.adviser.common.ContextVariables;
 public class ErrorPrinterDelegate implements JavaDelegate {
     @Override
     public void execute(DelegateExecution execution) throws Exception {
-        log.error("{}", execution.getVariable(ContextVariables.ERROR_MESSAGE));
+        log.error("{}", execution.getVariables().get(ContextVariables.ERROR_MESSAGE));
     }
 }

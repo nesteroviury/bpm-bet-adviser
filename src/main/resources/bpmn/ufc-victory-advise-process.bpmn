@@ -74,9 +74,19 @@
     <bpmn:sequenceFlow id="Flow_0maxsb2" sourceRef="illegalSecondFighterFightsCountErrorEvent" targetRef="errorEndEvent" />
   </bpmn:process>
   <bpmn:error id="Error_13ilme8" name="illeagalFirstFighterFightsCount" />
-  <bpmn:message id="Message_00kocrb" name="errorEventMessage" />
+  <bpmn:message id="Message_00kocrb" />
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="ufcVictoryAdviserProcess">
+      <bpmndi:BPMNEdge id="Flow_0maxsb2_di" bpmnElement="Flow_0maxsb2">
+        <di:waypoint x="508" y="300" />
+        <di:waypoint x="710" y="300" />
+        <di:waypoint x="710" y="148" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0m6jh2b_di" bpmnElement="Flow_0m6jh2b">
+        <di:waypoint x="440" y="152" />
+        <di:waypoint x="440" y="130" />
+        <di:waypoint x="692" y="130" />
+      </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_190su1u_di" bpmnElement="Flow_190su1u">
         <di:waypoint x="490" y="430" />
         <di:waypoint x="600" y="430" />
@@ -132,16 +142,6 @@
       <bpmndi:BPMNEdge id="Flow_1iygc7a_di" bpmnElement="Flow_1iygc7a">
         <di:waypoint x="215" y="377" />
         <di:waypoint x="275" y="377" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_0m6jh2b_di" bpmnElement="Flow_0m6jh2b">
-        <di:waypoint x="440" y="152" />
-        <di:waypoint x="440" y="130" />
-        <di:waypoint x="692" y="130" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_0maxsb2_di" bpmnElement="Flow_0maxsb2">
-        <di:waypoint x="508" y="300" />
-        <di:waypoint x="710" y="300" />
-        <di:waypoint x="710" y="148" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
         <dc:Bounds x="179" y="359" width="36" height="36" />

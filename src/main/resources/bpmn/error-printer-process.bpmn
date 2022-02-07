@@ -15,16 +15,16 @@
     </bpmn:endEvent>
     <bpmn:sequenceFlow id="Flow_0ssocni" sourceRef="errorPrinterActivity" targetRef="endEvent" />
   </bpmn:process>
-  <bpmn:message id="Message_0ffx1bq" name="errorEventMessage" />
+  <bpmn:message id="Message_0ffx1bq" name="errorMessage" />
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="errorPrinterProcess">
-      <bpmndi:BPMNEdge id="Flow_16z4rzk_di" bpmnElement="Flow_16z4rzk">
-        <di:waypoint x="215" y="97" />
-        <di:waypoint x="270" y="97" />
-      </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_0ssocni_di" bpmnElement="Flow_0ssocni">
         <di:waypoint x="370" y="97" />
         <di:waypoint x="432" y="97" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_16z4rzk_di" bpmnElement="Flow_16z4rzk">
+        <di:waypoint x="215" y="97" />
+        <di:waypoint x="270" y="97" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="Event_1gfku9w_di" bpmnElement="errorStartEvent">
         <dc:Bounds x="179" y="79" width="36" height="36" />
