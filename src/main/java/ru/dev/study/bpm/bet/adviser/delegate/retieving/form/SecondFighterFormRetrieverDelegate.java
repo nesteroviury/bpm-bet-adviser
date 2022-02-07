@@ -15,13 +15,13 @@ public class SecondFighterFormRetrieverDelegate implements JavaDelegate {
 
     @Override
     public void execute(DelegateExecution execution) throws Exception {
-//        int victoryCount = RANDOM.nextInt(29) + 1;
-//        int defeatCount = RANDOM.nextInt(29) + 1;
-//        if (victoryCount + defeatCount > 30) {
-            String errorMessage = String.format(ErrorConstants.ERROR_MESSAGE_TEMPLATE, 25, 25);
+        int victoryCount = RANDOM.nextInt(29) + 1;
+        int defeatCount = RANDOM.nextInt(29) + 1;
+        if (victoryCount + defeatCount > 30) {
+            String errorMessage = String.format(ErrorConstants.ERROR_MESSAGE_TEMPLATE, victoryCount, defeatCount);
             throw new BpmnError(ContextVariables.ERROR_MESSAGE, errorMessage);
-//        }
-//        double form = ((double) victoryCount) / defeatCount * 100;
-//        execution.setVariable(ContextVariables.SECOND_FIGHTER_FORM, form);
+        }
+        double form = ((double) victoryCount) / defeatCount * 100;
+        execution.setVariable(ContextVariables.SECOND_FIGHTER_FORM, form);
     }
 }

@@ -1,4 +1,4 @@
-package ru.dev.study.bpm.bet.adviser.delegate.messaging;
+package ru.dev.study.bpm.bet.adviser.delegate;
 
 import lombok.RequiredArgsConstructor;
 import org.camunda.bpm.engine.RuntimeService;
