@@ -1,9 +1,11 @@
 package ru.dev.study.bpm.bet.adviser.delegate;
 
+import org.camunda.bpm.engine.delegate.BpmnError;
 import org.camunda.bpm.engine.delegate.DelegateExecution;
 import org.camunda.bpm.engine.delegate.JavaDelegate;
 import org.springframework.stereotype.Component;
 import ru.dev.study.bpm.bet.adviser.common.ContextVariables;
+import ru.dev.study.bpm.bet.adviser.common.ErrorConstants;
 
 @Component
 public class AdviseBuilderDelegate implements JavaDelegate {
@@ -44,7 +46,8 @@ public class AdviseBuilderDelegate implements JavaDelegate {
         } else if (firstParam < secondParam) {
             result = 5;
         } else {
-            //todo: throw and catch exception
+            String errorMessage = String.format(ErrorConstants.ILLEGAL_FIGHTERS_TABLE_PLACE_ERROR_MESSAGE_TEMPLATE, firstParam);
+            throw new BpmnError(ContextVariables.ERROR_MESSAGE, errorMessage);
         }
         return result;
     }

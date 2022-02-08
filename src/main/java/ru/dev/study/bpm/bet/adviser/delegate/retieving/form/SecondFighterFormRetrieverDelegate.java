@@ -18,7 +18,7 @@ public class SecondFighterFormRetrieverDelegate implements JavaDelegate {
         int victoryCount = RANDOM.nextInt(29) + 1;
         int defeatCount = RANDOM.nextInt(29) + 1;
         if (victoryCount + defeatCount > 30) {
-            String errorMessage = String.format(ErrorConstants.ERROR_MESSAGE_TEMPLATE, victoryCount, defeatCount);
+            String errorMessage = String.format(ErrorConstants.ILLEGAL_FIGHT_COUNT_ERROR_MESSAGE_TEMPLATE, victoryCount, defeatCount);
             throw new BpmnError(ContextVariables.ERROR_MESSAGE, errorMessage);
         }
         double form = ((double) victoryCount) / defeatCount * 100;
